@@ -149,7 +149,14 @@ footer{padding:28px 64px;border-top:1px solid rgba(201,168,76,.08);display:flex;
 .chk-err.on{display:block}
 .chk-fail{display:none}
 .chk-fail.on{display:block}
-.chk-fail p{font-size:14px;font-weight:300;line-height:1.65;color:var(--text2);margin:0 0 18px}
+.chk-fail p{font-size:14px;font-weight:300;line-height:1.65;color:var(--text2);margin:0 0 16px}
+.chk-note{font-size:12.5px;color:var(--text3);margin:14px 0 0!important;text-align:center}
+.chk-label{font-size:13px;font-weight:300;line-height:1.6;color:var(--text2);margin:0 0 10px!important}
+textarea.chk-field{resize:vertical;line-height:1.5;font-size:14px}
+.chk-sent{display:none;text-align:center;padding:6px 0 2px}
+.chk-sent.on{display:block}
+.chk-sent-h{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:600;color:var(--gold);margin:0 0 10px}
+.chk-sent p{font-size:14px;font-weight:300;line-height:1.65;color:var(--text2);margin:0}
 .chk-fail a{color:var(--gold);text-decoration:underline;text-underline-offset:3px}
 /* PAY MODAL */
 .pay-ov{position:fixed;inset:0;background:rgba(6,5,3,.82);z-index:999;display:none;align-items:center;justify-content:center;padding:24px}
@@ -235,18 +242,15 @@ footer{padding:28px 64px;border-top:1px solid rgba(201,168,76,.08);display:flex;
 .rt-link i{width:7px;height:7px;border-radius:50%;background:var(--gold);flex-shrink:0}
 .rt-link b{flex:1;height:1px;background:rgba(201,168,76,.6)}
 .rt-link s{text-decoration:none;font-size:15px;padding:0 6px;line-height:1}
-.sh-grid{display:grid;grid-template-columns:minmax(0,1fr) 34px minmax(0,1fr);align-items:stretch;column-gap:0}
-.sh-head{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin:0 0 6px;padding-bottom:10px}
-.sh-head.a{grid-column:1;opacity:.7}
-.sh-head.b{grid-column:3;padding-left:18px}
-.sh{display:flex;align-items:center;gap:12px;padding:15px 0;border-bottom:1px solid rgba(201,168,76,.09)}
-.sh.last{border-bottom:none}
-.sh-a{grid-column:1}
-.sh-b{grid-column:3;padding-left:18px}
-.sh-ic{flex-shrink:0;width:34px;height:34px;border-radius:50%;border:1px solid rgba(201,168,76,.35);display:flex;align-items:center;justify-content:center;color:var(--gold)}
-.sh-a .sh-ic{opacity:.6}
-.sh-a .sh-t{font-size:13px;font-weight:300;color:var(--text3);line-height:1.4}
-.sh-b .sh-t{font-size:15px;font-weight:600;color:var(--gold);line-height:1.4}
+.sh3-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:rgba(201,168,76,.1);border-radius:14px;overflow:hidden}
+.sh3{background:#12100B;padding:20px 20px 22px;display:flex;flex-direction:column;gap:8px}
+.sh3-top{display:flex;align-items:center;gap:11px}
+.sh3-from{font-size:12.5px;font-weight:300;color:var(--text3);line-height:1.35}
+.sh3-arrow{color:rgba(201,168,76,.5);font-size:12px;padding-left:11px;line-height:1}
+.sh3-to{display:flex;align-items:center;gap:11px}
+.sh3-t{font-size:14px;font-weight:600;color:var(--gold);line-height:1.35}
+.sh-ic{flex-shrink:0;width:30px;height:30px;border-radius:50%;border:1px solid rgba(201,168,76,.28);display:flex;align-items:center;justify-content:center;color:var(--gold);opacity:.55}
+.sh-ic.gold{opacity:1;border-color:rgba(201,168,76,.5);background:rgba(201,168,76,.06)}
 .rt-sep{display:flex;align-items:center;gap:16px;margin:40px 0 26px;color:var(--gold)}
 .rt-sep b{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.35),transparent)}
 .rt-sep s{text-decoration:none;font-size:11px}
@@ -265,15 +269,11 @@ footer{padding:28px 64px;border-top:1px solid rgba(201,168,76,.08);display:flex;
   .rt-link s{transform:rotate(90deg);padding:6px 0}
   .rt-cap{padding:12px 20px 12px 12px;gap:14px}
   .rt-cap-ic{width:52px;height:52px}
-  .sh-grid{grid-template-columns:1fr}
-  .sh-head{display:none}
-  .sh-a,.sh-b{grid-column:1}
-  .sh-a{padding:12px 0 0;border-bottom:none;gap:10px}
-  .sh-b{padding:1px 0 12px 44px;border-bottom:1px solid rgba(201,168,76,.09)}
-  .sh-b.last{border-bottom:none}
-  .sh-b .sh-ic{display:none}
-  .sh-ic{width:32px;height:32px}
-  .sh-b .sh-t{font-size:14px}
+  .sh3-grid{grid-template-columns:1fr}
+  .sh3{flex-direction:row;align-items:center;gap:12px;padding:14px 18px}
+  .sh3-arrow{display:none}
+  .sh3-top,.sh3-to{flex:1;min-width:0}
+  .sh3-to .sh-ic{display:none}
 }
 @media(max-width:768px){
   .hero-content{padding:60px 24px}
@@ -337,15 +337,23 @@ footer{padding:28px 64px;border-top:1px solid rgba(201,168,76,.08);display:flex;
 
       <div class="rt-sep"><b></b><s>&#10022;</s><b></b></div>
 
-      <div class="sh-grid">
-        <p class="sh-head a">Точка А</p>
-        <p class="sh-head b">Точка Б</p>
-        <div class="sh sh-a"><span class="sh-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="3.6"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></span><span class="sh-t">От привычки заслуживать</span></div>
-        <div class="sh sh-b"><span class="sh-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 7.5 2.8C19.5 15.3 12 20 12 20z"/></svg></span><span class="sh-t">к праву выбирать</span></div>
-        <div class="sh sh-a"><span class="sh-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span><span class="sh-t">От страха не понравиться</span></div>
-        <div class="sh sh-b"><span class="sh-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><path d="M12 5c2.4 2 3.4 4.6 3.4 7.4C15.4 15 13.9 17 12 18c-1.9-1-3.4-3-3.4-5.6C8.6 9.6 9.6 7 12 5z"/><path d="M8.6 12.4C6.8 10.9 4.7 10.4 3 10.6c.2 3.6 3.4 6.9 9 7.4"/><path d="M15.4 12.4c1.8-1.5 3.9-2 5.6-1.8-.2 3.6-3.4 6.9-9 7.4"/></svg></span><span class="sh-t">к внутренней опоре</span></div>
-        <div class="sh sh-a last"><span class="sh-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.6"/></svg></span><span class="sh-t">От чужой оценки</span></div>
-        <div class="sh sh-b last"><span class="sh-ic"><svg width="18" height="15" viewBox="0 0 24 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><path d="M2 4l4 6 6-8 6 8 4-6v12H2z"/></svg></span><span class="sh-t">к своей короне</span></div>
+      <div class="sh3-grid">
+        <div class="sh3">
+          <div class="sh3-top"><span class="sh-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="8" r="3.6"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></span><span class="sh3-from">От привычки заслуживать</span></div>
+          <div class="sh3-arrow">&#8595;</div>
+          <div class="sh3-to"><span class="sh-ic gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 20s-7.5-4.7-7.5-9.6A4.4 4.4 0 0 1 12 7.6a4.4 4.4 0 0 1 7.5 2.8C19.5 15.3 12 20 12 20z"/></svg></span><span class="sh3-t">к праву выбирать</span></div>
+        </div>
+        <div class="sh3">
+          <div class="sh3-top"><span class="sh-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></span><span class="sh3-from">От страха не понравиться</span></div>
+          <div class="sh3-arrow">&#8595;</div>
+          <div class="sh3-to"><span class="sh-ic gold"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><path d="M12 5c2.4 2 3.4 4.6 3.4 7.4C15.4 15 13.9 17 12 18c-1.9-1-3.4-3-3.4-5.6C8.6 9.6 9.6 7 12 5z"/><path d="M8.6 12.4C6.8 10.9 4.7 10.4 3 10.6c.2 3.6 3.4 6.9 9 7.4"/><path d="M15.4 12.4c1.8-1.5 3.9-2 5.6-1.8-.2 3.6-3.4 6.9-9 7.4"/></svg></span><span class="sh3-t">к внутренней опоре</span></div>
+        </div>
+        <div class="sh3">
+          <div class="sh3-top"><span class="sh-ic"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6-10-6-10-6z"/><circle cx="12" cy="12" r="2.6"/></svg></span><span class="sh3-from">От чужой оценки</span></div>
+          <div class="sh3-arrow">&#8595;</div>
+          <div class="sh3-to"><span class="sh-ic gold"><svg width="18" height="15" viewBox="0 0 24 20" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"><path d="M2 4l4 6 6-8 6 8 4-6v12H2z"/></svg></span><span class="sh3-t">к своей короне</span></div>
+        </div>
+      </div>
       </div>
     </div>
   </div>
@@ -579,8 +587,16 @@ footer{padding:28px 64px;border-top:1px solid rgba(201,168,76,.08);display:flex;
       <button class="chk-btn" id="chkGo">Проверить</button>
     </div>
     <div class="chk-fail" id="chkFail">
-      <p>Не нашли эту почту среди участниц ликвидации. Если уверена, что участвовала — возможно, оплата была с другого адреса. Напиши нам, разберёмся.</p>
-      <a href="mailto:dashashamashu@gmail.com">dashashamashu@gmail.com</a>
+      <p id="chkFailWhy">Не нашли эту почту среди участниц ликвидации. Если уверена, что участвовала — возможно, оплата была с другого адреса. Отправь запрос, и мы разберёмся.</p>
+      <p class="chk-label">Укажи данные о покупке: почту, которую указывала при оплате, тип карты — РФ или иностранная, сумму и дату покупки.</p>
+      <textarea class="chk-field" id="chkNote" rows="4" placeholder="Пиши здесь"></textarea>
+      <p class="chk-err" id="chkSendErr"></p>
+      <button class="chk-btn" id="chkSend">Отправить запрос</button>
+      <p class="chk-note">Или напиши сама: <a href="mailto:dashashamashu@gmail.com">dashashamashu@gmail.com</a></p>
+    </div>
+    <div class="chk-sent" id="chkSent">
+      <p class="chk-sent-h">Запрос отправлен</p>
+      <p>Мы получили твоё сообщение и ответим на указанную почту. Обычно это занимает несколько часов.</p>
     </div>
   </div>
 </div>
@@ -632,15 +648,45 @@ document.addEventListener('click', function(e){
   function resetCheck(){
     document.getElementById('chkForm').style.display = '';
     document.getElementById('chkFail').classList.remove('on');
+    document.getElementById('chkSent').classList.remove('on');
     document.getElementById('chkErr').classList.remove('on');
+    document.getElementById('chkSendErr').classList.remove('on');
     document.getElementById('chkEmail').value = '';
+    document.getElementById('chkNote').value = '';
     var b = document.getElementById('chkGo');
     b.disabled = false; b.textContent = 'Проверить';
+    var sb = document.getElementById('chkSend');
+    sb.disabled = false; sb.textContent = 'Отправить запрос';
   }
 
-  function fail(){
+  function fail(why){
+    if(why) document.getElementById('chkFailWhy').textContent = why;
     document.getElementById('chkForm').style.display = 'none';
     document.getElementById('chkFail').classList.add('on');
+  }
+
+  function sendRequest(){
+    var email = (document.getElementById('chkEmail').value || '').trim();
+    var note = (document.getElementById('chkNote').value || '').trim();
+    var sb = document.getElementById('chkSend');
+    var se = document.getElementById('chkSendErr');
+    sb.disabled = true; sb.textContent = 'Отправляем…';
+    se.classList.remove('on');
+    fetch(CHECK_URL + '?action=request&email=' + encodeURIComponent(email) + '&note=' + encodeURIComponent(note))
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(d && d.sent){
+          document.getElementById('chkFail').classList.remove('on');
+          document.getElementById('chkSent').classList.add('on');
+        } else {
+          throw new Error('no');
+        }
+      })
+      .catch(function(){
+        sb.disabled = false; sb.textContent = 'Отправить запрос';
+        se.textContent = 'Не удалось отправить. Напиши напрямую на dashashamashu@gmail.com';
+        se.classList.add('on');
+      });
   }
 
   function err(msg){
@@ -666,7 +712,7 @@ document.addEventListener('click', function(e){
       })
       .catch(function(){
         b.disabled = false; b.textContent = 'Проверить';
-        err('Не получилось проверить. Попробуй ещё раз или напиши в поддержку.');
+        fail('Не получилось проверить список автоматически. Отправь запрос — проверим вручную и ответим на эту почту.');
       });
   }
 
@@ -683,6 +729,7 @@ document.addEventListener('click', function(e){
     var btn = e.target.closest('[data-pay]');
     if(btn){ e.preventDefault(); openPay(btn); return; }
     if(e.target.closest('#chkGo')){ e.preventDefault(); runCheck(); return; }
+    if(e.target.closest('#chkSend')){ e.preventDefault(); sendRequest(); return; }
     if(e.target === pay || e.target === chk || e.target.closest('#payClose') || e.target.closest('#chkClose')){ closeAll(); return; }
     if(e.target.closest('.pay-opt')) setTimeout(closeAll, 200);
   }, true);
